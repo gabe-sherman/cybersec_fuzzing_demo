@@ -1,6 +1,6 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 export PATH=$PATH:$SCRIPT_DIR/AFLplusplus
-export LD_LIBRARY_PATH=$SCRIPT_DIR/lib_fuzz/
+export LD_LIBRARY_PATH=$SCRIPT_DIR/demo/lib_fuzz/:$SCRIPT_DIR/c-ares_CVE/lib_fuzz/.libs/
 
 # some stuff to optimize fuzzing
 sudo sh -c 'echo core >/proc/sys/kernel/core_pattern'
