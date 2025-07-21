@@ -6,10 +6,7 @@ LIB_NAME = lib_fuzz
 LIB_REPO = https://github.com/vstakhov/libucl
 
 # compilation dependencies
-DEPS = -I $(PWD)/$(LIB_NAME)/ \
-	   -I $(PWD)/$(LIB_NAME)/include \
-	   -I $(PWD)/$(LIB_NAME)/src \
-	   -I $(PWD)/$(LIB_NAME)/uthash \
+DEPS = -I $(PWD)/$(LIB_NAME)/include \
 	   -L $(PWD)/$(LIB_NAME)/
 
 DEPS_DYN = -lucl
@@ -25,4 +22,4 @@ lib_fuzz: # AFL coverage; static linking.
 
 
 harness:
-	$(CC_FUZZ) -o harness.out harness.c $(DEPS) $(DEPS_DYN)
+	afl-clang-fast -o harness.out harness.c $(DEPS) $(DEPS_DYN)
