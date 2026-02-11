@@ -1,4 +1,4 @@
-### General Setup(Do this before anything else)
+### General Setup (Do this before anything else)
 
 Step 1: Run `. install_afl.sh` -- Installs AFL on your system
 
