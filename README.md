@@ -1,22 +1,31 @@
 ### General Setup(Do this before anything else)
 Step 1: Run `. install_afl.sh` -- Installs AFL on your system
 
-Step 2: Run `setenv.sh` -- This adds AFL to your path, set the `LD_LIBRARY_PATH`, and configure the system for fuzzing.
+Step 2: Run `setenv.sh` -- This adds AFL to your path, sets target-specific environment variables, and configures the system for fuzzing.
 
-### Fuzzing Demo
-Step 1: Run `cd demo` -- Navigate to the demo directory.
+### 1) File Command Line Tool Demo
+Step 1: Run `cd file-demo` -- Navigate to the file-demo directory.
 
-Step 2: Run `make lib_fuzz`. -- Build the library and instrument it.
+Step 2: Run `make lib_fuzz`. -- Build the file tool and instrument it with `afl-clang-fast`.
+
+Step 3: Run `make seeds`. -- Fetch seeds for the file tool.
+
+Step 4: Run `begin_fuzzing.sh` -- Start fuzzing!
+
+### 2) LibUCL Harness Demo
+Step 1: Run `cd harness-demo` -- Navigate to the harness-demo directory.
+
+Step 2: Run `make lib_fuzz`. -- Build the library and instrument it with `afl-clang-fast`.
 
 Step 3: Run `make harness`. -- Build the harness and link against the instrumented library
 
 Step 4: Run `begin_fuzzing.sh` -- Start fuzzing!
 
-### c-ares CVE 2016-5180
+### 3) c-ares CVE 2016-5180
 
-Step 1: Run `cd c-ares_CVE` -- Navigate to the demo directory.
+Step 1: Run `cd cve-2016-demo` -- Navigate to the cve-2016-demo directory.
 
-Step 2: Run `make lib_fuzz`. -- Build the library and instrument it.
+Step 2: Run `make lib_fuzz`. -- Build the library and instrument it with `afl-clang-fast`.
 
 Step 3: Run `make harness`. -- Build the harness and link against the instrumented library
 
